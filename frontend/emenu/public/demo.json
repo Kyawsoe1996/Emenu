@@ -1,0 +1,9 @@
+[
+    {"id":1,"name":"Salad","price":300,
+    "src":"https://odm-fs.fra1.digitaloceanspaces.com/img/B25100754987454553.jpg"},
+    {"id":2,"name":"EE","price":200,
+    "src":"https://odm-fs.fra1.digitaloceanspaces.com/img/B25100754987454553.jpg"},
+    {"id":3,"name":"DD","price":700,
+    "src":"https://odm-fs.fra1.digitaloceanspaces.com/img/B25100754987454553.jpg"}
+    
+  ]

@@ -1,0 +1,19 @@
+.language-select {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 5px;
+    justify-content: center;
+    select {
+        background-color: #f0eaea;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        outline: none;
+        width: 20%;
+        // color: white;
+
+        option{
+            color: rgb(241, 163, 163)
+        }
+    }
+}
