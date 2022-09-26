@@ -13,6 +13,8 @@ from rest_framework.response import Response
 
 
 # Create your views here.
+def ok(request):
+    return JsonResponse({"hehe":"OK"})
 
 def index(request):
     return JsonResponse({"name":"Kyaw Soe",},safe=False)
