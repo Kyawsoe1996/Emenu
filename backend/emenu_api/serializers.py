@@ -1,9 +1,12 @@
+from asyncore import read
 from dataclasses import fields
+from multiprocessing import managers
 from pyexpat import model
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueTogetherValidator
 from .models import Seat,Business
+from django.http import JsonResponse
 
 class SeatSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,10 +15,15 @@ class SeatSerializer(serializers.ModelSerializer):
 
 
 class BusinessSerializer(serializers.ModelSerializer):
-    seats = SeatSerializer(many=True)
+    seats = SeatSerializer(many=True,read_only=True)
     class Meta:
         model = Business
         fields =('id','name','location','phone','website_url','wifi','image','seats')
+       
+
+    
+    def create(self, validated_data):
+        return super().create(validated_data)
 
 
 

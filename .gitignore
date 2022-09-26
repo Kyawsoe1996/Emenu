@@ -1,0 +1,26 @@
+backend/venv
+frontend/emenu/node_modules
+backend/__pycache__/
+
+
+# dependencies
+frontend/emenu/node_modules
+frontend/emenu/node_modules/.pnp
+frontend/emenu/node_modules/.pnp.js
+
+# testing
+frontend/emenu/node_modules/coverage
+
+# production
+frontend/emenu/node_modules/build
+
+# misc
+frontend/emenu/node_modules/.DS_Store
+frontend/emenu/node_modules/.env.local
+frontend/emenu/node_modules/.env.development.local
+frontend/emenu/node_modules/.env.test.local
+frontend/emenu/node_modules/.env.production.local
+
+frontend/emenu/node_modules/npm-debug.log*
+frontend/emenu/node_modules/yarn-debug.log*
+frontend/emenu/node_modules/yarn-error.log*

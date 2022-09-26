@@ -12,6 +12,10 @@ app_name="emenu_api"
 router = DefaultRouter()
 
 router.register(r'business', BusinessViewSet,basename="business")
+router.register(r'seats', SeatViewSet,basename="seats")
+
+
+
 
 # The API URLs are now determined automatically by the router.
 urlpatterns = [

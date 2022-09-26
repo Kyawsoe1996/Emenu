@@ -19,7 +19,7 @@ class Business(models.Model):
 
 class Seat(models.Model):
     seat_no = models.CharField(max_length=100)
-    business_id = models.ForeignKey(Business,related_name="seats",on_delete=models.CASCADE)
+    business_id = models.ForeignKey(Business,related_name="seats",on_delete=models.CASCADE,blank=True,null=True)
     is_available = models.BooleanField(default=True)
     seat_fitting = models.IntegerField()
 
@@ -27,7 +27,9 @@ class Seat(models.Model):
     class Meta:
         pass
     def __str__(self):
-        return f'{self.business_id.name}- {self.seat_no}'
+        return f'{self.seat_no}'
+        # return f'{self.business_id.name}- {self.seat_no}'
+
 
 
    
