@@ -25,6 +25,15 @@ class BusinessSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         return super().create(validated_data)
 
+class CategorySerializer(serializers.ModelSerializer):
+    pass
+
+class ItemSerializer(serializers.ModelSerializer):
+    pass
+
+
+
+
 
 
 
