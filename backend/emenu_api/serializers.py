@@ -1,11 +1,10 @@
 from asyncore import read
 from dataclasses import fields
 from multiprocessing import managers
-from pyexpat import model
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueTogetherValidator
-from .models import Seat,Business
+from .models import Category, Item, Seat,Business
 from django.http import JsonResponse
 
 class SeatSerializer(serializers.ModelSerializer):
@@ -26,10 +25,29 @@ class BusinessSerializer(serializers.ModelSerializer):
         return super().create(validated_data)
 
 class CategorySerializer(serializers.ModelSerializer):
-    pass
+    image = serializers.URLField(source="get_file_url")
+    
+    business_name = serializers.ReadOnlyField(source='business_id.name')
+    class Meta:
+        model = Category
+        fields= ('id','name','image','business_name')
+        
+class CategoryImageUploadableSerializer(serializers.ModelSerializer):
+    
+    business_name = serializers.ReadOnlyField(source='business_id.name')
+    class Meta:
+        model = Category
+        fields= ('id','name','image','business_name')
+    
+
 
 class ItemSerializer(serializers.ModelSerializer):
-    pass
+    image = serializers.URLField(source="get_file_url")
+    category_id = serializers.ReadOnlyField(source='category_id.name')
+    class Meta:
+        model = Item
+        fields = ('id','name','price','recipes','image','category_id')
+
 
 
 

@@ -1,0 +1,172 @@
+.item {
+    // display: flex;
+    
+    // background-color: red
+    
+
+    
+    
+    .itemContainer {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 50%;
+        margin: auto;
+        position: relative;
+        
+        
+        padding: 10px;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        border-radius: 10px;
+        height: auto;
+
+        .back-button{
+            // background-color: white;
+            // position: absolute;
+            // left: 20px;
+            // top: 20px;
+            
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top:0;
+            // left: 300px;
+           
+           
+            border: none;
+            background: white;
+            border-radius: 100%;
+            padding: 10px;
+            display: flex;
+            align-self: flex-start;
+           
+            cursor: pointer;
+    
+    
+            .icon {
+                color: black;
+            }
+    
+            
+        }
+
+      
+        
+        .ItemList{
+            display: flex;
+            flex-direction: column;
+            .items {
+            
+                display: flex;
+                flex-direction: column;
+                .itemImage{
+                    img {
+                        height:400px ;
+                        width: 100%;
+                        border-radius: 8%;
+                        padding: 10px;
+                    }
+                    
+                }
+                
+                .title{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 10px;
+                    .sub-title {
+                        color: black;
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                    .weight{
+                        font-size: 13px;
+                        font-weight: 300;
+                        color: grey;
+                    }
+                    
+                }
+                .recipes {
+                    display: flex;
+                    padding: 10px;
+                    font-size: 15px;
+                    text-transform: lowercase;
+                    padding: 10px;
+                    font-weight: 400;
+                    color: rgba(102, 101, 101, 0.65);
+                }
+                .price-and-order{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 10px;
+                    align-items: center;
+                    .price{
+                        flex:3;
+                        display: flex;
+                        justify-content: flex-start;
+                        
+                        align-items: center;
+                        gap: 22px;
+                        .original-price{
+                            // background-color: red;
+                            font-size: 32px;
+                            color: orange;
+                            sup {
+                                font-size: 20px;
+                            }
+                        }
+    
+                        .discount-price{
+                           
+                            font-size: 22px;
+                            color: grey;
+                            sup {
+                                font-size: 17px;
+                            }
+                        }
+    
+                       
+                    }
+                    .order {
+                        flex: 4;
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        // background-color: blue;
+                        button {
+                            cursor: pointer;
+                            font-size: 22px;
+                            background-color: rgba(255, 166, 0, 0.508);
+                            border: 3px solid var(--color-primary);
+                            border-radius: 50%;
+                            padding: 5px 10px 4px;
+                            color: white;
+                            font-weight: 700;
+                           
+                           
+                          
+                        }
+                        
+    
+                        
+                    }
+                }
+                
+            }
+        }
+
+        
+
+       
+ 
+
+  
+       
+
+        
+        
+       }
+       
+
+        
+    }
+

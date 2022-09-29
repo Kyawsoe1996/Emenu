@@ -3,6 +3,12 @@ class EmenuAPIService {
   async getAllBusinessList() {
     return await axios.get("business/");
   }
+  async getSpecifiBusinessCategoryList(business_id){
+    return await axios.get(`business/${business_id}/category/`)
+  }
+  async getAllItemsInSpecificCategory(category_id) {
+    return await axios.get(`category/${category_id}/items/`)
+  }
 
   creteUser(x) {
     return axios.post("/account/users/", x);

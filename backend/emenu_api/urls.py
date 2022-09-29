@@ -4,7 +4,11 @@ from .views import (
    index,
    ok,
    SeatViewSet,
-   BusinessViewSet
+   BusinessViewSet,
+   
+   CategoryDetailView,
+   ItemListView,
+   CategoryViewSet   
 )
 
 
@@ -14,7 +18,7 @@ router = DefaultRouter()
 
 router.register(r'business', BusinessViewSet,basename="business")
 router.register(r'seats', SeatViewSet,basename="seats")
-
+router.register(r'category',CategoryViewSet,basename="category")
 
 
 
@@ -23,10 +27,23 @@ router.register(r'seats', SeatViewSet,basename="seats")
 urlpatterns = [
    path(r'',index,name='index'),
    path(r'ok/',ok,name='gg'),
+   
+
+]
+categor_url_patterns = [
+   path(r'category/<int:pk>/',CategoryDetailView.as_view(),name='category-detail'),
+
+
+]
+item_url_patterns = [
+   path(r'item/',ItemListView.as_view(),name='item-list'),
 
 ]
 
 
 # router.register(r'', view.LeaveViewSet,basename="leave")
 urlpatterns += router.urls
+urlpatterns+= categor_url_patterns
+urlpatterns+=item_url_patterns
+
 

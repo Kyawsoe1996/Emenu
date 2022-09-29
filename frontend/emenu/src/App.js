@@ -3,22 +3,53 @@ import "jquery/dist/jquery.slim.js";
 import "./App.css";
 import Home from "./pages/home/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Item from "./pages/item/Item";
+import BusinessContext from "./CONTEXT/BusinessContext";
+import { useEffect, useState } from "react";
+import EmenuAPIservice from "./apiService/EmenuAPIservice";
 
 
 function App() {
+  const [business,businessSet] = useState([])
+  const business_id = business.id
+  useEffect(()=> {
+    EmenuAPIservice.getAllBusinessList().then(res=> {
+         
+        console.log(res.data[2])
+         businessSet(res.data[2])
+         
+        
+    }).catch(err=> {
+        console.log(err)
+    })
+ },[])
+
+ 
   return (
+    <BusinessContext.Provider
+      value={{
+          business,
+          businessSet,
+          business_id,
+      }}
+      >
     <div className="App">
       <Router>
         <Routes>
           <Route path="/">
             <Route index element={<Home />} />
-            {/* <Route path="/login" element={<Login />} />
+            
+            <Route path="categories">
+              <Route path=":id/items/" element={< Item/>} />
+              {/* <Route path=":HomeuserId" element={<Single />} />
+              <Route path="new" element={<New />} /> */}
+            </Route> 
 
-            <Route path="users">
+            {/* <Route path="users">
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />
               <Route path="new" element={<New />} />
-            </Route> */}
+            </Route> */} 
 
             {/* <Route path="products">
               <Route index element={<List />} />
@@ -31,6 +62,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+    </BusinessContext.Provider>
   );
 }
 

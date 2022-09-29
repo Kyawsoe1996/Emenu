@@ -4,6 +4,10 @@ from .image_path_gen_utility import BusinessImageGenerator,ItemImageGenerator,Ca
 business_image_generator =BusinessImageGenerator()
 item_image_generator = ItemImageGenerator()
 category_image_generator = CategoryImageGenerator()
+from django.conf import settings
+
+from urllib.parse import urljoin
+
 
 class Business(models.Model):
     name = models.CharField(max_length=100)
@@ -48,8 +52,25 @@ class Category(models.Model):
         pass
     def __str__(self):
         return f'{self.name}'
-
-
+    #category api mr image url link ma paw lot
+    #  {
+    #     "id": 5,
+    #     "name": "Dessert",
+    #     "image": "http://localhost:8000/media/category/NPT/images/Dessert.jpg",
+    #     "business_name": "NPT"
+    # },
+    ###########LIKE THIS####################
+    #  {
+    #     "id": 5,
+    #     "name": "Dessert",
+    #     "image": "media/category/NPT/images/Dessert.jpg",
+    #     "business_name": "NPT"
+    # },
+    @property
+    def get_file_url(self):
+        
+        return urljoin(settings.BACKEND_URL, self.image.url)
+       
 
 # Create your models here.
 
@@ -66,6 +87,11 @@ class Item(models.Model):
         pass
     def __str__(self):
         return f'{self.name}'
+    
+    @property
+    def get_file_url(self):
+        
+        return urljoin(settings.BACKEND_URL, self.image.url)
 
 
 
