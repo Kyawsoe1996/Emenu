@@ -93,6 +93,42 @@ class Item(models.Model):
         
         return urljoin(settings.BACKEND_URL, self.image.url)
 
+class OrderItem(models.Model):
+    item_id = models.ForeignKey(Item,related_name="orders",on_delete=models.CASCADE)
+    price = models.IntegerField()
+    qty = models.IntegerField(default=1)
+
+
+    def __str__(self):
+        return self.item_id.name
+
+    def __unicode__(self):
+        return 
+
+ORDER_STATUS = (
+    ('pending', 'Pending'),
+    ('cooking', 'Cooking'),
+    ('done', 'Done'),
+    # ('En','Engineering'),
+    # ('Ps','Psycology'),
+)
+
+class Order(models.Model):
+    items =models.ManyToManyField(OrderItem)
+    seat = models.ForeignKey(Seat,related_name="orders",on_delete=models.CASCADE)
+    status = models.CharField(choices=ORDER_STATUS,max_length=10)
+    total_price = models.IntegerField()
+
+    def __str__(self):
+        return self.seat.seat_no
+
+
+
+
+
+
+
+
 
 
 

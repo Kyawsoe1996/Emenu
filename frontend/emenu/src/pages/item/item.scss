@@ -109,7 +109,7 @@
                         .original-price{
                             // background-color: red;
                             font-size: 32px;
-                            color: orange;
+                            color: #f7906c;
                             sup {
                                 font-size: 20px;
                             }
@@ -131,17 +131,28 @@
                         display: flex;
                         justify-content: flex-end;
                         align-items: center;
+                        align-content: center;
+                        gap:1px;
                         // background-color: blue;
+                       
                         button {
+                            
                             cursor: pointer;
-                            font-size: 22px;
-                            background-color: rgba(255, 166, 0, 0.508);
-                            border: 3px solid var(--color-primary);
-                            border-radius: 50%;
-                            padding: 5px 10px 4px;
+                            font-size: 20px;
+                            background-color: #f7906c;
+                            // border: 3px solid var(--color-primary);
+                            border-radius: 70%;
+                            border: none;
+                            padding: 13px;
                             color: white;
                             font-weight: 700;
-                           
+                            &:nth-child(2){
+                                background-color:white ;
+                                color: #f7906c; 
+                                border: none;
+                                outline: none;
+                                font-size: 25px;
+                            }
                            
                           
                         }
@@ -152,6 +163,19 @@
                 }
                 
             }
+        }
+        .showOrder {
+            background-color: #f7906c;
+            height: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            position: sticky;
+            bottom:0;
+            color: white;
+            
         }
 
         

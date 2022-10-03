@@ -7,9 +7,11 @@ function Category() {
   const {business_id} = useContext(BusinessContext)
   const [category,categorySet] = useState([])
   
+  console.log(business_id,"BUsinessID")
+  
   
   useEffect(()=> {
-    EmenuAPIservice.getSpecifiBusinessCategoryList(8).then(res=> {
+    EmenuAPIservice.getSpecifiBusinessCategoryList(business_id).then(res=> {
          
         console.log(res)
         categorySet(res.data)
@@ -18,7 +20,9 @@ function Category() {
     }).catch(err=> {
         console.log(err)
     })
-  },[])
+  },[business_id])
+
+  
   
   
   return (

@@ -15,7 +15,8 @@ function App() {
   useEffect(()=> {
     EmenuAPIservice.getAllBusinessList().then(res=> {
          
-        console.log(res.data[2])
+        // console.log(res.data[2])
+
          businessSet(res.data[2])
          
         
@@ -23,6 +24,7 @@ function App() {
         console.log(err)
     })
  },[])
+ 
 
  
   return (
@@ -40,7 +42,7 @@ function App() {
             <Route index element={<Home />} />
             
             <Route path="categories">
-              <Route path=":id/items/" element={< Item/>} />
+              <Route path=":categoriesId/items/" element={< Item/>} />
               {/* <Route path=":HomeuserId" element={<Single />} />
               <Route path="new" element={<New />} /> */}
             </Route> 

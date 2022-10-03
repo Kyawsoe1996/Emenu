@@ -3,6 +3,7 @@ import "./topimage.scss";
 import BusinessContext from "../../CONTEXT/BusinessContext";
 import { Link } from "react-router-dom";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import ZoomImage from "../ZoomImage";
 
 function TopImage() {
   const { business, businessSet } = useContext(BusinessContext);
@@ -12,6 +13,7 @@ function TopImage() {
       <div className="backgroundImage">
         <img src={business.image} alt="OK" />
       </div>
+      
 
       
 

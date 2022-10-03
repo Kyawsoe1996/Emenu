@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import TopImage from "../../components/TopImageComponent.jsx/TopImage";
 import BusinessDetail from "../../components/BusinessDetail/BusinessDetail";
 import BusinessContext from "../../CONTEXT/BusinessContext";
+import ZoomImage from "../../components/ZoomImage";
 
 
 
@@ -25,6 +26,7 @@ function Home() {
     <div className="home">
       <Navbar />
       <LanguageSelect />
+      
       <div className="homeContainer">
         <TopImage business={business} />
 

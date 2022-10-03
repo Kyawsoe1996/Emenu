@@ -15,13 +15,14 @@ import BusinessContext from "../../CONTEXT/BusinessContext";
 import ItemList from "../../components/itemListingtoshow/ItemList";
 
 function Item() {
-  const {category_Id} = useParams()
+  const {categoriesId} = useParams()
+  // console.log(categoriesId,"CATEGORY ID")
   
   const { business, businessSet } = useContext(BusinessContext);
   const [items,SetItems] = useState([])
   useEffect(()=> {
     console.log("useEffect")
-    EmenuAPIservice.getAllItemsInSpecificCategory(5).then(res=> {
+    EmenuAPIservice.getAllItemsInSpecificCategory(parseInt(categoriesId)).then(res=> {
          
         
         SetItems(res.data)
@@ -30,7 +31,7 @@ function Item() {
     }).catch(err=> {
         console.log(err)
     })
-  },[category_Id])
+  },[])
   
 
  
@@ -61,7 +62,7 @@ function Item() {
                 
               </div>
             
-                <ItemList items={items} />
+                <ItemList itemsList={items} />
             
             
             {/* .................................. */}
