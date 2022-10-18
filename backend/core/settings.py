@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'emenu_api'
+    'emenu_api',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -127,6 +128,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+#custom user model
+AUTH_USER_MODEL = 'users.BusinessUser'
 
 
 # Static files (CSS, JavaScript, Images)

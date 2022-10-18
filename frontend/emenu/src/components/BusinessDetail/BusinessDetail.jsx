@@ -1,13 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './businessdetail.scss'
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import WifiOutlinedIcon from '@mui/icons-material/WifiOutlined';
 import PhoneEnabledOutlinedIcon from '@mui/icons-material/PhoneEnabledOutlined';
 import BusinessContext from '../../CONTEXT/BusinessContext'
+import Seat from '../seat/Seat';
+import EmenuAPIservice from '../../apiService/EmenuAPIservice';
+import { useState } from 'react';
 
 
 function BusinessDetail() {
-  const {business,businessSet} = useContext(BusinessContext)
+  const [seats,setSeat] = useState([])
+  const {business,businessSet,business_id} = useContext(BusinessContext)
+  
+  useEffect(()=> {
+      EmenuAPIservice.getBusinessSeats(business_id).then(res=>(
+          setSeat(res.data)
+          )).catch(error=> (
+        console.log(error)
+      ))
+  },[])
+ 
   return (
     <div className="business">
             <div className="business-name">
@@ -37,6 +50,7 @@ function BusinessDetail() {
               <button>
                 Bar
               </button>
+              <Seat seats={seats} />
             </div>
           </div>
   )

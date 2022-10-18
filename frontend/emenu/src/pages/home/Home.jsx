@@ -17,8 +17,10 @@ import ZoomImage from "../../components/ZoomImage";
 
 
 function Home() {
-  const { business, businessSet } = useContext(BusinessContext);
-  
+  const { business, businessSet,business_id } = useContext(BusinessContext);
+  if(!business_id){
+    return <div>Loading Data..........</div>
+}
   
   return (
     <>

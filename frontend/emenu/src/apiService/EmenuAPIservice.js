@@ -10,6 +10,10 @@ class EmenuAPIService {
     return await axios.get(`category/${category_id}/items/`)
   }
 
+  async getBusinessSeats(business_id){
+    return await axios.get(`business/${business_id}/seats/`)
+  }
+
   creteUser(x) {
     return axios.post("/account/users/", x);
   }

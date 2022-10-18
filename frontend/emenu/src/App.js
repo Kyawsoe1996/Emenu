@@ -7,17 +7,17 @@ import Item from "./pages/item/Item";
 import BusinessContext from "./CONTEXT/BusinessContext";
 import { useEffect, useState } from "react";
 import EmenuAPIservice from "./apiService/EmenuAPIservice";
+import Order from "./pages/order/Order";
 
 
 function App() {
-  const [business,businessSet] = useState([])
-  const business_id = business.id
+  const [business,businessSet] = useState({})
   useEffect(()=> {
     EmenuAPIservice.getAllBusinessList().then(res=> {
          
         // console.log(res.data[2])
 
-         businessSet(res.data[2])
+         businessSet(res.data[0])
          
         
     }).catch(err=> {
@@ -32,7 +32,7 @@ function App() {
       value={{
           business,
           businessSet,
-          business_id,
+          business_id:business.id,
       }}
       >
     <div className="App">
@@ -43,6 +43,12 @@ function App() {
             
             <Route path="categories">
               <Route path=":categoriesId/items/" element={< Item/>} />
+              {/* <Route path=":HomeuserId" element={<Single />} />
+              <Route path="new" element={<New />} /> */}
+            </Route> 
+
+            <Route path="order">
+              <Route path="" element={< Order/>} />
               {/* <Route path=":HomeuserId" element={<Single />} />
               <Route path="new" element={<New />} /> */}
             </Route> 

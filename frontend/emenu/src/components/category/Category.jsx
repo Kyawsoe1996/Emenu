@@ -11,7 +11,8 @@ function Category() {
   
   
   useEffect(()=> {
-    EmenuAPIservice.getSpecifiBusinessCategoryList(business_id).then(res=> {
+    
+        EmenuAPIservice.getSpecifiBusinessCategoryList(business_id).then(res=> {
          
         console.log(res)
         categorySet(res.data)
@@ -20,6 +21,8 @@ function Category() {
     }).catch(err=> {
         console.log(err)
     })
+    
+    
   },[business_id])
 
   

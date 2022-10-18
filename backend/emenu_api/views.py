@@ -109,7 +109,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
         items =category.items.all()
         
         serializer = ItemSerializer(items,many=True)
-        print(serializer.data,"#####")
         
         return Response(serializer.data,status=status.HTTP_200_OK)
 

@@ -141,11 +141,15 @@
                             font-size: 20px;
                             background-color: #f7906c;
                             // border: 3px solid var(--color-primary);
-                            border-radius: 70%;
+                            border-radius: 50%;
                             border: none;
-                            padding: 13px;
+                            // padding: 13px;
                             color: white;
                             font-weight: 700;
+                            line-height: 12px;
+                            text-align: center;
+                            padding: 14px;
+                            
                             &:nth-child(2){
                                 background-color:white ;
                                 color: #f7906c; 
@@ -175,6 +179,13 @@
             position: sticky;
             bottom:0;
             color: white;
+
+            a{
+                text-decoration: none;
+                color: white;
+                font-weight: 900;
+                font-size: medium;
+            }
             
         }
 

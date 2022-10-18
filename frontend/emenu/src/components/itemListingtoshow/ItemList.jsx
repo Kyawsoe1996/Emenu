@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ZoomImage from "../ZoomImage";
 function ItemList({ itemsList }) {
   const [items,setItem]=useState([])
-  
+  console.log(itemsList)
   const [orderCount,setOrderCount]= useState(0)
   useEffect(()=> {
     let result = itemsList.map(function(item){
@@ -110,7 +110,9 @@ function ItemList({ itemsList }) {
     </div>
     {isShowmyOrder?(
       <div className="showOrder">
-      Show my order
+          <Link to="/order">
+            Show my order
+          </Link>
     </div>
     ):""}
     </>

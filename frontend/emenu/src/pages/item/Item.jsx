@@ -13,25 +13,42 @@ import BusinessDetail from "../../components/BusinessDetail/BusinessDetail";
 import { useContext } from "react";
 import BusinessContext from "../../CONTEXT/BusinessContext";
 import ItemList from "../../components/itemListingtoshow/ItemList";
+import Seat from "../../components/seat/Seat";
 
 function Item() {
   const {categoriesId} = useParams()
   // console.log(categoriesId,"CATEGORY ID")
   
   const { business, businessSet } = useContext(BusinessContext);
+  
   const [items,SetItems] = useState([])
   useEffect(()=> {
     console.log("useEffect")
     EmenuAPIservice.getAllItemsInSpecificCategory(parseInt(categoriesId)).then(res=> {
          
         
-        SetItems(res.data)
+      let result = res.data.map(function(item){
+        const data ={...item,qty:0}
+        return data
+    })
+        SetItems(result)
+        
          
         
     }).catch(err=> {
         console.log(err)
     })
   },[])
+
+  // if(items){
+  //   let result = items.map(function(item){
+  //     const data ={...item,qty:0}
+  //     return data
+    
+  // })
+  //   SetItems(result)
+  // }
+  
   
 
  
@@ -40,6 +57,7 @@ function Item() {
   return (
     <>
       <div className="item">
+        
         <Navbar />
         <LanguageSelect />
         <div className="itemContainer">
