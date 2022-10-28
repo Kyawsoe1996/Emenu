@@ -14,12 +14,16 @@ function BusinessDetail() {
   const {business,businessSet,business_id} = useContext(BusinessContext)
   
   useEffect(()=> {
-      EmenuAPIservice.getBusinessSeats(business_id).then(res=>(
+      // console.log("Fetching Seats..")
+      if(business_id){
+        EmenuAPIservice.getBusinessSeats(business_id).then(res=>(
           setSeat(res.data)
           )).catch(error=> (
         console.log(error)
       ))
-  },[])
+      }
+      
+  },[business_id])
  
   return (
     <div className="business">

@@ -13,14 +13,29 @@ import TopImage from "../../components/TopImageComponent.jsx/TopImage";
 import BusinessDetail from "../../components/BusinessDetail/BusinessDetail";
 import BusinessContext from "../../CONTEXT/BusinessContext";
 import ZoomImage from "../../components/ZoomImage";
+import { useDispatch, useSelector } from "react-redux";
+import { CategoriesDataFetch } from "../../store/category/category-actions";
 
 
 
 function Home() {
   const { business, businessSet,business_id } = useContext(BusinessContext);
+  const dispatch = useDispatch()
+  const categories = useSelector(state=> state.category.categories)
+  useEffect(()=> {
+    // console.log("Categories Data Fetching based on Business!!!!!1")
+    if(business_id){
+      dispatch(CategoriesDataFetch(business.id))
+    }
+    
+  },[business])
+
+
   if(!business_id){
     return <div>Loading Data..........</div>
 }
+
+
   
   return (
     <>
@@ -43,7 +58,7 @@ function Home() {
             </div>
           </div>
           
-          <Category data ={business} />
+          <Category/>
           
         </div>
       </div>

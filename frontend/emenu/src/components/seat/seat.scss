@@ -27,7 +27,24 @@
             background-color: rgb(179, 138, 138);
             
         }
-
+    }
+        //if user click to show the select seat when click 'Select Seats'
+        .seat-selected {
+            flex: 1 1 200px;
+            // flex-wrap: wrap;
+            // width: 50%;
+            height: 30px;
+            // gap: 5px;
+            // width: 130px;
+           
+            border-radius: 10px;
+            color:white;
+            background-color: green;
+            // border: 1px solid red;
+            text-align: center;
+            cursor: progress;
+    
+            
        
 
     }

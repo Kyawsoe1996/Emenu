@@ -14,46 +14,28 @@ import { useContext } from "react";
 import BusinessContext from "../../CONTEXT/BusinessContext";
 import ItemList from "../../components/itemListingtoshow/ItemList";
 import Seat from "../../components/seat/Seat";
+import { useDispatch, useSelector } from "react-redux";
+import { itemActions } from "../../store/item/item-slice";
+import { CategoryBaseItemFetch } from "../../store/item/item-action";
 
 function Item() {
+  const dispatch = useDispatch()
   const {categoriesId} = useParams()
+  const items = useSelector(state=> state.item.items)
+  const cartItems = useSelector((state) => state.cart.itemsList);
+  const isShowmyOrder = cartItems.length > 0;
+
   // console.log(categoriesId,"CATEGORY ID")
   
   const { business, businessSet } = useContext(BusinessContext);
-  
-  const [items,SetItems] = useState([])
   useEffect(()=> {
-    console.log("useEffect")
-    EmenuAPIservice.getAllItemsInSpecificCategory(parseInt(categoriesId)).then(res=> {
-         
-        
-      let result = res.data.map(function(item){
-        const data ={...item,qty:0}
-        return data
-    })
-        SetItems(result)
-        
-         
-        
-    }).catch(err=> {
-        console.log(err)
-    })
-  },[])
+      
+      dispatch(CategoryBaseItemFetch(parseInt(categoriesId)))
+      
+  },[categoriesId])
 
-  // if(items){
-  //   let result = items.map(function(item){
-  //     const data ={...item,qty:0}
-  //     return data
-    
-  // })
-  //   SetItems(result)
-  // }
   
   
-
- 
-  
- 
   return (
     <>
       <div className="item">
@@ -79,12 +61,21 @@ function Item() {
                 <h3>Hot Meals</h3>
                 
               </div>
-            
-                <ItemList itemsList={items} />
+                {items.map(item=> (
+                      <ItemList  key={item.id} item={item}/>
+                ))}
+              
             
             
             {/* .................................. */}
           </div>
+          {isShowmyOrder ? (
+        <div className="showOrder">
+          <Link to="/order">Show my order</Link>
+        </div>
+      ) : (
+        ""
+      )}
         </div>
       </div>
     </>

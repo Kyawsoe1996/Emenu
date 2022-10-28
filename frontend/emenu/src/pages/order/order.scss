@@ -1,41 +1,50 @@
-.order {
-    // display: flex;
-    
-    // background-color: red
-    
+//item Page and Order Page is the same UI design
+.category-name {
+    display: flex;
+    margin-left: 15px;
+    .my-order{
+        font-size: 25px;
+        font-weight: 100;
+        font-family: monospace;
+        color: rgba(133, 126, 126, 0.668);
+    }
+}
 
+.empty-order {
     
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
     
-    .orderContainer {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+    .icon {
+        // flex: 1;
         width: 50%;
         margin: auto;
-        position: relative;
-        
-        
-        padding: 10px;
-        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-        border-radius: 10px;
-        height: auto;
+        font-size: larger;
+        height: 150px;
+        color: rgb(231, 225, 225);
 
-        
-
-        
-
-       
- 
-
-  
-       
-
-        
-        
-       }
-       
-
-        
     }
+    .back-to-main-menu{
+        // flex: 1;
+        background-color:#f7906c;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 50%;
+        margin: auto;
+        border-radius: 50px;
+        color: white;
+        font-size: larger;
+        font-weight: bold;
+        // margin: 10px;
+        padding: 5px;
 
+    }
+    
+
+
+}
